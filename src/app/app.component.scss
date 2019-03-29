@@ -1,0 +1,11 @@
+
+$backColor: brown;
+
+
+.brand-custom {
+    &:hover, &:focus, &:active {
+        background-color: transparent;
+        color:$backColor;
+    }
+}
+

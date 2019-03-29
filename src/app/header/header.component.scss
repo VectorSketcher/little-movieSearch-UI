@@ -1,0 +1,15 @@
+$navBG: #8AA8B2;
+$bottomBorder: #7C949E;
+$titleColor: #fff;
+
+.navbar{
+  background-color: $navBG;
+  margin-bottom: 25px;
+  border-bottom: solid 3px $bottomBorder;
+  color: $titleColor;
+  height: 85px;
+}
+h3{
+  text-align: center;
+  margin: auto;
+}

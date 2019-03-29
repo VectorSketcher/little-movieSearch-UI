@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-4 sort-by">
+      <label>Filter by decade: </label>
+    </div>
+    <div class="row">
+      <div class="col-8 col-sm-6">
+        <button
+          (click)="higherDecade()"
+          [disabled]="clickedOne"
+          type="button"
+          class="btn btn-info">
+          2000's
+        </button>
+      </div>
+      <div class="col-4 col-sm-6">
+        <button
+          (click)="lowerDecade()"
+          [disabled]="clickedTwo"
+          type="button"
+          class="btn btn-info">
+          1990's
+        </button>
+      </div>
+    </div>
+    <div class="col-2 text-right">
+      <button (click)="showAllMovies()" type="button" class="btn btn-info">
+        Show All
+      </button>
+    </div>
+  </div>
+  <br />
+  <div *ngFor="let movie of filteredMovies">
+    <div class="row movie-card-style rounded">
+      <div class="col-5 col-md-3">
+        <img class="rounded float-left" src="{{ movie.Poster }}" />
+      </div>
+      <div class="col-12 col-sm-6 col-md-8">
+        <h3>Title: {{ movie.Title }}</h3>
+        <hr />
+        <div class="row">
+          <div class="col-sm-2">
+            <span class="rate-style rounded">
+              {{ movie.Rated }}
+            </span>
+          </div>
+          <div class="col">
+            {{ movie.Runtime }}
+          </div>
+          <div class="col text-right">
+            {{ movie.Released }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col plot-text">
+            {{ movie.Plot }}
+          </div>
+        </div>
+        <div class="row">
+          &nbsp;
+        </div>
+        <div class="row" *ngIf="movie.Website != 'N/A'">
+          <div class="col text-right">
+            <a
+              class="btn btn-secondary btn-sm"
+              target="_blank"
+              href="{{ movie.Website }}"
+              >View Website</a
+            >
+          </div>
+        </div>
+        <div class="row" *ngIf="movie.Website === 'N/A'">
+          <div class="col text-right">
+            <button class="btn btn-secondary btn-sm" disabled>
+              No Viewable Site
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>
